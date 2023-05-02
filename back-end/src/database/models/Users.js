@@ -8,13 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     image: DataTypes.STRING,
   },
-{
-      underscored: true,
-      timestamps: false,
-    },
+{ underscored: true, timestamps: false, tableName: 'users' },
 );
   Users.associate = (models) => {
-    Users.hasMany(models.Sales, { foreignKey: 'user_id', as: 'user_id' });
+    Users.hasMany(models.Sales, { foreignKey: 'user_id', as: 'userId' });
+    Users.hasMany(models.Sales, { foreignKey: 'seller_id', as: 'sellerId' });
   };
   return Users;
 };
