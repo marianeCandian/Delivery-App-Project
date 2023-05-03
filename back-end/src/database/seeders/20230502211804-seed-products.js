@@ -35,11 +35,11 @@ const products = [
 ];
 
 module.exports = {
-  up: async (queryInterface, _Sequelize) => {
+  async up(queryInterface, _Sequelize) {
     await queryInterface.bulkInsert('products', products);
   },
 
-  down: async (queryInterface, _Sequelize) => {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.bulkDelete('products', null, {});
   },
 };
